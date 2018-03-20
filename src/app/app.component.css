@@ -1,0 +1,7 @@
+#main-navigation {
+    width: 300px;
+}
+
+#main-content, #main-footer {
+    padding: 10px 20px;
+}
