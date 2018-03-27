@@ -1,0 +1,10 @@
+#article-list {
+    position: relative;
+}
+
+#article-list .post-card {
+    display: block;
+    float: left;
+    width: 26%;
+    margin: 1%;
+}

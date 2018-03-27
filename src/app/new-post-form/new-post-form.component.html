@@ -1,0 +1,18 @@
+<h2>Ajouter un nouvel article</h2>
+<form #form="ngForm" class="new-post-form" (submit)="onSubmit(form)">
+  <mat-form-field class="input-full-width">
+    <input matInput placeholder="Titre" [(ngModel)]="post.title" #postTitleInput="ngModel" name="title" required minlength=2>
+    <mat-error *ngIf="postTitleInput?.invalid && postTitleInput?.dirty">
+      Veuillez entrer un titre valide
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="input-full-width">
+    <textarea matInput placeholder="Contenu de l'article" [(ngModel)]="post.content" #postContentInput="ngModel" name="content" required minlength=2></textarea>
+    <mat-error *ngIf="postContentInput?.invalid && postContentInput?.dirty">
+      Veuillez entrer un contenu valide
+    </mat-error>
+  </mat-form-field>
+  <div class="input-full-width">
+    <button type="submit" mat-raised-button color="primary">Submit</button>
+  </div>
+</form>

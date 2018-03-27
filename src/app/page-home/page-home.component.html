@@ -1,3 +1,41 @@
-<p>
-  page-home works!
-</p>
+<h3>Checkbox</h3>
+<mat-checkbox>Check me!</mat-checkbox>
+
+<h3>Datepicker</h3>
+<mat-form-field>
+  <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
+
+<h3>Form fields</h3>
+<mat-form-field>
+  <input matInput placeholder="Input">
+</mat-form-field>
+
+<h3>Radio buttons</h3>
+<mat-radio-group>
+  <mat-radio-button value="1">Option 1</mat-radio-button>
+  <mat-radio-button value="2">Option 2</mat-radio-button>
+</mat-radio-group>
+
+<h3>Basic select</h3>
+<mat-form-field>
+  <mat-select placeholder="Favorite food">
+    <mat-option value="steak">
+      Steak
+    </mat-option>
+    <mat-option value="hamburger">
+      Hamburger
+    </mat-option>
+    <mat-option value="frites">
+      Frites
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<h3>Slider</h3>
+<mat-slider></mat-slider>
+
+<h3>Basic slide-toggles</h3>
+<mat-slide-toggle>Slide me!</mat-slide-toggle>
