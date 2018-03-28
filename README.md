@@ -528,7 +528,7 @@ Vous pouvez désormais utiliser tous les composants graphiques de la librairie `
 
 ### Exemple d'utilisation
 
-[Voir l'exemple sur Heroku]
+[Voir l'exemple sur Heroku](https://appmed-angular.herokuapp.com)
 
 ```html
 <h3>Checkbox</h3>
