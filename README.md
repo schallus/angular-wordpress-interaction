@@ -6,8 +6,8 @@ Table des matières
 =================
 - [Service wp-api-angular](#service-wp-api-angular)
 - [Utilisation avancée des Observables](#les-observables)
-- [Routag avec Angular](#routage-avec-angular)
-- [Composants graphiques Angular](#composants-graphiques-angular)
+- [Routage avec Angular](#routage-avec-angular)
+- [Composants graphiques Angular](#librairies-de-composants-graphiques-angular)
 
 ## Service [wp-api-angular](https://github.com/wordpress-clients/wp-api-angular)
 **wp-api-angular** est un package npm permettant l'interaction entre Wordpress API et Angular
@@ -49,7 +49,7 @@ Vous pourrez ensuite effectuer des requêtes comme suit :
 
 #### GET
 
-Pour obtenir des données depuis l'API REST WordPress, il n'est pas nécessaire d'être connecté. Il vous suffit donc de faire comme celà:
+Pour obtenir des données depuis l'API REST WordPress, il n'est pas nécessaire d'être connecté. Il vous suffit donc de faire comme cela:
 
 ```typescript
 
@@ -78,23 +78,23 @@ loadPostsList() {
 
 #### POST
 
-Pour l'ajout, l'édition ou la suppression de contenu a travers l'API WordPress, il est nécessaire de s'authentifier
+Pour l'ajout, l'édition ou la suppression de contenu à travers l'API WordPress, il est nécessaire de s'authentifier
 
-Il existe plusieurs méthode d'authentification
+Il existe plusieurs méthodes d'authentification
 
 * [Cookie Authentication](http://v2.wp-api.org/guide/authentication/#cookie-authentication)
 * [OAuth Authentication](http://v2.wp-api.org/guide/authentication/#oauth-authentication)
 * [Application Passwords or Basic Authentication](http://v2.wp-api.org/guide/authentication/#application-passwords-or-basic-authentication)
 
-Dans l'exemple ci-dessous, nous allons utiliser la méthode `Basic Authentication` car celle-ci est facile à mettre en place. Si vous voulez qqch de sécurisé, il est fortement recommandé d'utiliser la 2e méthode `OAuth Authentication`.
+Dans l'exemple ci-dessous, nous allons utiliser la méthode `Basic Authentication`, car celle-ci est facile à mettre en place. Si vous voulez quelque chose de sécurisé, il est fortement recommandé d'utiliser la 2e méthode `OAuth Authentication`.
 
 Vous trouverez ici, les instructions sur comment configurer l'authentification OAuth : [https://oauth1.wp-api.org/](https://oauth1.wp-api.org/)
 
-Avant de pouvoir utiliser la méthode `Basic Authentication`, il est nécessaire d'installer le plugin suivant sur votre site WordPress : [https://github.com/WP-API/Basic-Auth](https://github.com/WP-API/Basic-Auth)
+Avant de pouvoir utiliser la méthode `Basic Authentication`, il est nécessaire d'installer le plug-in suivant sur votre site WordPress : [https://github.com/WP-API/Basic-Auth](https://github.com/WP-API/Basic-Auth)
 
-Une fois ce plugin installé, vous pourrez insérer, modifier ou encore supprimer des contenus comme ceci: 
+Une fois ce plug-in installé, vous pourrez insérer, modifier ou encore supprimer des contenus comme ceci: 
 ```javascript
-// Nous passons le nom d'utilisateur et mot de passe WordPress dans l'entête de la requête.
+// Nous passons le nom d'utilisateur et mot de passe WordPress dans l'en-tête de la requête.
 this.headers = new Headers({
     'Content-Type': 'application/json;charset=UTF-8',
     'Authorization': 'Basic ' + btoa(Config.wordPressUsername + ':' + Config.wordPressPassword)
@@ -116,7 +116,7 @@ this.wpApiPosts.create(this.post, {headers: this.headers})
 
 Tout comme les promesses avaient modifié nos habitudes, la programmation réactive *(avec les observables)* nous oblige à apprendre un nouveau paradigme. Les documentations sont dures à comprendre, les schémas font peur et on ne sait pas par où commencer.
 
-Et pourtant, il suffit de connaitre quelques bases pour s'en sortir dans presque tous les cas. Nous vous présenterons donc ces quelques classes et méthodes qui vous suivront tout au long de vos développements d'applications Angular.
+Et pourtant, il suffit de connaître quelques bases pour s'en sortir dans presque tous les cas. Nous vous présenterons donc ces quelques classes et méthodes qui vous suivront tout au long de vos développements d'applications Angular.
 
 ### Qu'est ce que la programmation réactive ?
 La programmation réactive se base sur le concept d'observateur. Si vous n'êtes pas familier avec ce principe, le principe est tout simplement que l'on définit des **observables** et des **observateurs**. Les observables vont émettre des événements qui seront interceptés par les observateurs.
@@ -146,10 +146,10 @@ const myObservable = Observable.of(42)
 
 ### Combiner plusieurs observables
 
-L'exemple ci-dessous nous log dans la console la position du curseur lorsque nous cliquons et que la position Y de notre curseur est suppérieure à 200.
+L'exemple ci-dessous nous log dans la console la position du curseur lorsque nous cliquons et que la position Y de notre curseur est supérieure à 200.
 
 ```javascript
-// Créer un observable à partir d'un évenement
+// Créer un observable à partir d'un événement
 const click$ = Observable.fromEvent(document, 'click');
 
 click$.subscribe(
@@ -170,7 +170,7 @@ combined$.subscribe(
 );
 ```
 
-### Requetes HTTP
+### Requêtes HTTP
 
 Le module `HttpClient` d'Angular renvoie par défaut des **Observables**
 
@@ -220,11 +220,11 @@ consecutiveReqs() {
 }
 ```
 
-### Chainer des requetes HTTP
+### Chaîner des requêtes HTTP
 
 Il est également possible de chaîner les requêtes HTTP à l'aide de la fonction `switchMap` ou `mergeMap`. Il existe des petites différences entre ces deux fonctions donc je vous recommande de lire cet article pour en savoir plus: [https://javascript.tutorialhorizon.com/2017/03/29/switchmap-vs-flatmap-rxjs/](https://javascript.tutorialhorizon.com/2017/03/29/switchmap-vs-flatmap-rxjs/)
 
-Dans l'exemple ci-dessous, nous effectuons un appel GET vers un API et utilisons sont résultat au format JSON dans l'appel de la 2e requête.
+Dans l'exemple ci-dessous, nous effectuons un appel GET vers un API et utilisons son résultat au format JSON dans l'appel de la 2e requête.
 
 ```javascript
 Rx.Observable.of('some_url')
@@ -234,7 +234,7 @@ Rx.Observable.of('some_url')
 
 ### RxJS retry operator
 
-Un des grand avantage des Observables sur les Promise et qu'il est possible de réessayer plusieurs fois une requête jusqu'à ce que nous obtenons le résultat escompté.
+Un des grands avantages des Observables sur les Promise et qu'il est possible de réessayer plusieurs fois une requête jusqu'à ce que nous obtenons le résultat escompté.
 
 Avec la fonction `retry()` la requête sera réexécuter si l'Observable retourne une erreur.
 
@@ -250,7 +250,7 @@ this.articles$ = articlesService.loadArticles().retryWhen(errors => errors.delay
 ```
 
 ### Annuler une requête
-RxJS nous permet également d'annuler des requêtes. Par exemple, cela pourrait nous être utile si l'utilisateur change de page sur une single page application. Sans annuler la requête, on obtiendrais des données dont nous n'avons plus besoin. Il est donc recommandé d'annuler cette requête.
+RxJS nous permet également d'annuler des requêtes. Par exemple, cela pourrait nous être utile si l'utilisateur change de page sur une single page application. Sans annuler la requête, on obtiendrait des données dont nous n'avons plus besoin. Il est donc recommandé d'annuler cette requête.
 
 ```javascript
 reload() {
@@ -260,7 +260,7 @@ reload() {
     );
 }
 
-// Annule la requete si elle est toujours en éxecution
+// Annule la requête si elle est toujours en exécution
 cancel() {
     this.sub.unsubscribe();
 }
@@ -292,7 +292,7 @@ Nous allons rapidement parcourir le fonctionnement de ce module sans entrer dans
 
 ### Module de routage
 
-Dans le cas d'une petite application avec uniquement un `Router` il est possible d'intégrer les route directement de le fichier `app.module.ts`. Si votre application grandi, l'utilisation d'un module de routage peut s'avérer utile. Pour créer un module de routage, faites comme ceci:
+Dans le cas d'une petite application avec uniquement un `Router` il est possible d'intégrer les routes directement dans le fichier `app.module.ts`. Si votre application grandit, l'utilisation d'un module de routage peut s'avérer utile. Pour créer un module de routage, faites comme ceci:
 
 * Créer un nouveau fichier appelé `angular-project/src/app/app-routing.module.ts`
 
@@ -354,7 +354,7 @@ import { AppRoutingModule } from './app-routing.module';
 export class AppModule { }
 ```
 
-Pour intégrer le menu dans nos template, faites comme ceci: 
+Pour intégrer le menu dans nos templates, faites comme ceci: 
 ```html 
 <nav #sidenav id="main-navigation">
     <ul>
@@ -373,8 +373,8 @@ Pour intégrer le menu dans nos template, faites comme ceci:
 
 ## Librairies de composants graphiques Angular
 
-Il existe de nombreuses librairies UI Angular mais la plus connu d'entre elle s'appelle `Material Design for Angular` ou `material2`.
-Cette librairie suit les règles de la Material Design Guidelines de Google et est relativement complète, c'est pourquoi nous allons l'utiliser pour un micro projet
+Il existe de nombreuses librairies UI Angular, mais la plus connue d'entre elles s'appelle `Material Design for Angular` ou `material2`.
+Cette librairie suit les règles de la Material Design Guidelines de Google et est relativement complète, c'est pourquoi nous allons l'utiliser pour un micro projet.
 
 Vous trouverez la [documentation complète ici](https://material.angular.io/)
 
