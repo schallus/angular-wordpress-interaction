@@ -1,6 +1,10 @@
 # Approfondissement Angular
 
-Dans le cadre du cours approfondissement média (AppMed), j'ai décidé d'approfondir mes compétences dans le Framework Angular 5. Pour cet approfondissement, je me suis notamment penché sur les points suivants:
+Dans le cadre du cours approfondissement média (AppMed), j'ai décidé d'approfondir mes compétences dans le Framework Angular 5. 
+
+Afin d'approfondir mes compétences, j'ai réalisé un petit projet Angular permettant d'afficher et créer des articles WordPress à travers l'API Angular. [Voir la démo](https://appmed-angular.herokuapp.com)
+
+Pour cet approfondissement, je me suis notamment penché sur les points suivants:
 
 Table des matières
 =================
